@@ -37,6 +37,7 @@ privkey2=Uxxxxxxxxxxxxxxxxxx
 ## Step 3
 
 Execute the `create-assetchain.sh` script, it will launch two terminals each with a daemon running in them.
+It also imports the `privkey` corresponding to the `pubkey` for the respective daemons.
 Use the scripts `c1` and `c2` to interact with the 1st and 2nd daemons respectively.
 
 Example:
@@ -48,6 +49,8 @@ Example:
 ```
 
 Use the `stop` method to gracefully stop the daemons.
+
+The script can be used to both create new assetchains or to launch an existing one.
 
 ## Cleanup
 
