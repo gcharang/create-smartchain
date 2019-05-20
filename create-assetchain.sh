@@ -14,12 +14,16 @@ datadir=$datadir
 if [ ! -d "$datadir" ]; then
   mkdir $datadir
   echo "created $datadir"
+else 
+  echo "$datadir already exists"  
 fi
 
 if [ ! -d "$datadir/$name" ]; then
   mkdir "$datadir/$name"
   echo "created $datadir/$name"
-fi
+else 
+  echo "$datadir/$name already exists"  
+fi  
 
 gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey1'; $srcdir/$launch -pubkey=$pubkey1; exec bash\""
 echo "started the first daemon in a new terminal"
@@ -46,25 +50,23 @@ rpcworkqueue=256
 rpcallowip=127.0.0.1
 EOF
 
-cat $datadir/$name/$name.conf
-
 gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey2 -datadir=$datadir/$name -addnode=localhost'; $srcdir/$launch -pubkey=$pubkey2 -datadir=$datadir/$name -addnode=localhost; exec bash\""
 echo "started the second daemon in a new terminal"
 
-while [ ! $($srcdir/komodo-cli -ac_name=$name getinfo > /dev/null ) ]
+until $srcdir/komodo-cli -ac_name=$name getinfo &>/dev/null
 do
    echo "waiting for the first daemon to accept rpc calls"
-   sleep 15
+   sleep 1
 done
 
-gnome-terminal -e "bash -c \"$srcdir/komodo-cli -ac_name=$name importprivkey $privkey1; exec bash\""
-echo "opened cli of first daemon"
+$srcdir/komodo-cli -ac_name=$name importprivkey $privkey1
+echo "imported privkey of first daemon"
 
-while [ ! $($srcdir/komodo-cli -ac_name=$name -datadir=$datadir/$name getinfo > /dev/null 2>&1) ]
+until $srcdir/komodo-cli -ac_name=$name -datadir=$datadir/$name getinfo &>/dev/null
 do
   echo "waiting for the second daemon to accept rpc calls"
-  sleep 15
+  sleep 1
 done
 
-gnome-terminal -e "bash -c \"$srcdir/komodo-cli -ac_name=$name -datadir=$datadir/$name importprivkey $privkey2; exec bash\""
-echo "opened cli of second daemon"
+$srcdir/komodo-cli -ac_name=$name -datadir=$datadir/$name importprivkey $privkey2
+echo "imported privkey of second daemon"
