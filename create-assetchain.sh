@@ -45,8 +45,8 @@ if [ ! -f "$datadir/$name/$name.conf" ]; then
   cat <<EOF > $datadir/$name/$name.conf
   rpcuser=user$rand1
   rpcpassword=pass$rand2
-  rpcport=$((rpcport+4))
-  port=$((rpcport+3))
+  rpcport=$((rpcport+6))
+  port=$((rpcport+5))
   server=1
   txindex=1
   rpcworkqueue=256
