@@ -2,6 +2,8 @@
 
 This repository automates the steps described in the doc: https://docs.komodoplatform.com/assetchains/create-asset-chain-single-node.html
 
+**Assumes Ubuntu desktop environment, may need tweaks for other environments**
+
 Clone the repository and navigate into it.
 
 ## Step 1
