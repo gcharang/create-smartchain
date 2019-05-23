@@ -71,7 +71,12 @@ else
   echo "Looks like the initial setup of the explorers directory and installation of dependencies has been done"
 fi
 
-./install-assetchain-explorer.sh $name noweb
+if [ ! -d "./$name-explorer" ]; then
+  echo "Installing the explorer for the assetchain $name" 
+  ./install-assetchain-explorer.sh $name noweb
+else
+  echo "The explorer for $name seems to be already installed"
+fi
 
 echo "Launching first daemon to reindex the blocks"
 cd $CUR_DIR
