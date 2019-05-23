@@ -27,8 +27,6 @@ else
   create=0  
 fi
 
-./cleanup.sh
-
 gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey1'; $srcdir/$launch -pubkey=$pubkey1; exec bash\""
 echo "started the first daemon in a new terminal"
 
