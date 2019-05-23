@@ -93,4 +93,4 @@ do
 done
 
 echo "Use the 'start.sh' script to start the daemons"
-echo "Execute 'start.sh explorer' script to start the daemons along with the explorer"
+echo "Execute 'start.sh explorer' to start the daemons along with the explorer"
