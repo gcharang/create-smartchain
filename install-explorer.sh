@@ -22,7 +22,7 @@ if [ -f $pidfile ]; then
   done
   
   if [ "$answer" = "n" ]; then
-    echo "Exiting the script, please shutdown the first daemon using './c1 stop' and try again"
+    echo "Exiting the script, please shutdown the first daemon using './c1 stop' and run the script 'install-explorer.sh'"
     exit 1
   elif [ "$answer" = "y" ]; then
     echo "Proceeding to shut down the daemon and install the explorer"
@@ -43,12 +43,13 @@ echo "Launching the daemons to mine a few blocks"
 blocks=$(./c1 getinfo | jq -r '.blocks')
 while [ $blocks -lt 5 ]; do
   sleep 5
+  blocks=$(./c1 getinfo | jq -r '.blocks')
   echo "waiting for atleast 5 blocks to be mined"
 done  
 echo "Stopping the daemons to install the explorer"
 ./stop.sh 
 
-if [ ! -d "$CUR_DIR/explorers"]; then
+if [ ! -d "$CUR_DIR/explorers" ]; then
   echo "Cloning the explorer installer repository"
   success=0
   count=1
