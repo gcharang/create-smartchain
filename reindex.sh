@@ -3,7 +3,8 @@
 source data
 source keys
 
-./c1 stop
+./c1 stop &>/dev/null
+echo "Stopping the first daemon"
 
 while ./c1 stop &>/dev/null
 do
@@ -11,7 +12,8 @@ do
   sleep 5
 done
 
-./c2 stop
+./c2 stop &>/dev/null
+echo "Stopping the second daemon"
 
 while ./c2 stop &>/dev/null
 do

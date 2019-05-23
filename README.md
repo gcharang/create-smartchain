@@ -74,8 +74,11 @@ Example:
 ./reindex.sh 2 # reindexes the second daemon
 ```
 
-## Install Explorer
+## Explorer
+
+Use `install-explorer.sh` to install the explorer for your assetchain. You can use the command `./start.sh explorer` to start the explorer along with the coin daemons after it has been installed.
 
 ## Cleanup
 
-To remove the assetchain completely, execute the `cleanup.sh` script. It removes the datadirectories of both the daemons. This is typically done to start another assetchain with the same name.
+To remove the assetchain completely, execute the `cleanup.sh` script. It removes the datadirectories of both the daemons, the explorer script and explorer installation. This is typically done to start another assetchain with the same name.
+To target the removal of a Assetchain other than the one described in the `data` file, use `./cleanup.sh ASSETCHAIN-NAME`

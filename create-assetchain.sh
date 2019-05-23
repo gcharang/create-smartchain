@@ -25,7 +25,9 @@ if [ ! -d "$datadir/$name" ]; then
 else 
   echo "$datadir/$name already exists"
   create=0  
-fi  
+fi
+
+./cleanup.sh
 
 gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey1'; $srcdir/$launch -pubkey=$pubkey1; exec bash\""
 echo "started the first daemon in a new terminal"

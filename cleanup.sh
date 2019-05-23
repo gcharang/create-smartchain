@@ -1,9 +1,18 @@
 #!/bin/bash
 
-source data
+if [ $# -eq 1 ]; then
+  name=$1
+elif [ $# -eq 0 ]; then  
+  source data
+else
+  echo "Received more arguments than expected; received:$# expected:1"
+  exit 1
+fi  
 
-./c1 stop
-./c2 stop
+./c1 stop &>/dev/null
+echo "Stopping the first daemon"
+./c2 stop &>/dev/null
+echo "Stopping the second daemon"
 
 while ./c1 stop &>/dev/null
 do
@@ -22,5 +31,7 @@ rm -rf /home/$USER/coinData/$name/
 
 echo "removed the directories: '/home/$USER/.komodo/$name/' and '/home/$USER/coinData/$name/'"
 
-rm $name*
-rm -rf ./explorers/$name*
+rm $name* &>/dev/null
+echo "removed $name*"
+rm -rf ./explorers/$name* &>/dev/null
+echo "removed ./explorers/$name*"
