@@ -20,7 +20,7 @@ datadir=/home/<USER>/coinData
 - `name` is the assetchain's desired name
 - `srcdir` is the absolute location of the directory which contains `komodod` and `komodo-cli`
 - `launch` is the custom launch parameters of the assetchain, don't include `-pubkey` or `-addnode`
-- `datadir` is the directory to which the datadirectories of the second daemons are saved, no need to create it, the script will do it for you
+- `datadir` is the absolute location of the directory to which the datadirectories of the second daemons are saved, no need to create it, the script will do it for you
 
 ## Step 2
 
