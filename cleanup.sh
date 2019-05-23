@@ -23,3 +23,4 @@ rm -rf /home/$USER/coinData/$name/
 echo "removed the directories: '/home/$USER/.komodo/$name/' and '/home/$USER/coinData/$name/'"
 
 rm $name*
+rm -rf ./explorers/$name*

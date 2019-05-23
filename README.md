@@ -74,6 +74,8 @@ Example:
 ./reindex.sh 2 # reindexes the second daemon
 ```
 
+## Install Explorer
+
 ## Cleanup
 
 To remove the assetchain completely, execute the `cleanup.sh` script. It removes the datadirectories of both the daemons. This is typically done to start another assetchain with the same name.
