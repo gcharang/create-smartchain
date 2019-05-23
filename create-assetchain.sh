@@ -12,6 +12,9 @@ privkey2=$privkey2
 datadir=$datadir
 create=1
 
+./stop.sh
+
+
 if [ ! -d "$datadir" ]; then
   mkdir $datadir
   echo "created $datadir"
