@@ -54,6 +54,8 @@ Use the `stop` method to gracefully stop the daemons.
 
 The script can be used to both create new assetchains or to launch an existing one.
 
+**Note:** Executing `create-assetchain.sh explorer` installs the explorer too
+
 ## Start
 
 Once the initial launch is done and the daemons have been shut down, the `start.sh` script can be used to launch the daemons and start mining on the first daemon

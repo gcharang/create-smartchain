@@ -22,23 +22,23 @@ do
 done
 
 if [ $1 -eq 1 ] ; then
-  gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey1 -reindex'; $srcdir/$launch -pubkey=$pubkey1 -reindex; exec bash\""
+  gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey1 -reindex'; $srcdir/$launch -pubkey=$pubkey1 -reindex\""
   echo "started the first daemon in a new terminal with '-reindex' option"
-  gnome-terminal -e "bash -c \"echo 'tail -f ~/.komodo/$name/debug.log'; tail -f ~/.komodo/$name/debug.log; exec bash\""
+  gnome-terminal -e "bash -c \"echo 'tail -f ~/.komodo/$name/debug.log'; tail -f ~/.komodo/$name/debug.log\""
   echo "opened debug.log in a new terminal"
 elif [ $1 -eq 2 ] ; then
-  gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey2 -reindex -datadir=$datadir/$name -addnode=localhost'; $srcdir/$launch -pubkey=$pubkey2 -reindex -datadir=$datadir/$name -addnode=localhost; exec bash\""
+  gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey2 -reindex -datadir=$datadir/$name -addnode=localhost'; $srcdir/$launch -pubkey=$pubkey2 -reindex -datadir=$datadir/$name -addnode=localhost\""
   echo "started the second daemon in a new terminal with '-reindex' option" 
-  gnome-terminal -e "bash -c \"echo 'tail -f $datadir/$name/debug.log'; tail -f $datadir/$name/debug.log; exec bash\""
+  gnome-terminal -e "bash -c \"echo 'tail -f $datadir/$name/debug.log'; tail -f $datadir/$name/debug.log\""
   echo "opened debug.log in a new terminal"
 else
-  gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey1'; $srcdir/$launch -pubkey=$pubkey1; exec bash\""
+  gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey1'; $srcdir/$launch -pubkey=$pubkey1\""
   echo "started the first daemon in a new terminal with '-reindex' option"
-  gnome-terminal -e "bash -c \"echo 'tail -f ~/.komodo/$name/debug.log'; tail -f ~/.komodo/$name/debug.log; exec bash\""
+  gnome-terminal -e "bash -c \"echo 'tail -f ~/.komodo/$name/debug.log'; tail -f ~/.komodo/$name/debug.log\""
   echo "opened debug.log in a new terminal"
-  gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey2 -reindex -datadir=$datadir/$name -addnode=localhost'; $srcdir/$launch -pubkey=$pubkey2 -reindex -datadir=$datadir/$name -addnode=localhost; exec bash\""
+  gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey2 -reindex -datadir=$datadir/$name -addnode=localhost'; $srcdir/$launch -pubkey=$pubkey2 -reindex -datadir=$datadir/$name -addnode=localhost\""
   echo "started the second daemon in a new terminal with '-reindex' option" 
-  gnome-terminal -e "bash -c \"echo 'tail -f $datadir/$name/debug.log'; tail -f $datadir/$name/debug.log; exec bash\""
+  gnome-terminal -e "bash -c \"echo 'tail -f $datadir/$name/debug.log'; tail -f $datadir/$name/debug.log\""
   echo "opened debug.log in a new terminal"
 fi
   

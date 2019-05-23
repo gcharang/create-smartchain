@@ -30,7 +30,7 @@ else
   create=0  
 fi
 
-gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey1'; $srcdir/$launch -pubkey=$pubkey1; exec bash\""
+gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey1'; $srcdir/$launch -pubkey=$pubkey1\""
 echo "started the first daemon in a new terminal"
 
 
@@ -60,7 +60,7 @@ else
   echo "conf file for second daemon already exists"  
 fi
 
-gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey2 -datadir=$datadir/$name -addnode=localhost'; $srcdir/$launch -pubkey=$pubkey2 -datadir=$datadir/$name -addnode=localhost; exec bash\""
+gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey2 -datadir=$datadir/$name -addnode=localhost'; $srcdir/$launch -pubkey=$pubkey2 -datadir=$datadir/$name -addnode=localhost\""
 echo "started the second daemon in a new terminal"
 
 until $srcdir/komodo-cli -ac_name=$name getinfo &>/dev/null
@@ -87,4 +87,14 @@ if [ "$create" -eq "1" ]; then
   echo "imported privkey of second daemon; ready to accept rpc"
 else
   echo "second daemon is ready to accept rpc"   
-fi  
+fi
+
+if [ $# -eq 1 ]; then
+  if [ "$1" = "explorer" ]; then
+    ./install-explorer.sh
+  fi
+elif [ $# -eq 0 ]; then  
+  echo "You can install an explorer by executing the script: ./install-explorer.sh"
+else
+  echo "Received more arguments than expected; Took no action regarding the arguments"
+fi
