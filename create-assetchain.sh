@@ -94,7 +94,7 @@ if [ $# -eq 1 ]; then
     ./install-explorer.sh
   fi
 elif [ $# -eq 0 ]; then  
-  echo "You can install an explorer by executing the script: ./install-explorer.sh"
+  echo "The explorer can be installed by executing the script: ./install-explorer.sh"
 else
   echo "Received more arguments than expected; Took no action regarding the arguments"
 fi
