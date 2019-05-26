@@ -11,6 +11,9 @@ fi
 CUR_DIR=$(pwd)
 
 pidfile="$HOME/.komodo/$name/komodod.pid"  
+if [ '$1' = 'force' ];then
+  ./stop.sh
+fi
 
 if [ -f $pidfile ]; then
   echo "The first daemon is running, it needs to be shutdown to install the explorer"

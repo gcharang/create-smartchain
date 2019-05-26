@@ -91,7 +91,7 @@ fi
 
 if [ $# -eq 1 ]; then
   if [ "$1" = "explorer" ]; then
-    ./install-explorer.sh
+    ./install-explorer.sh force
   fi
 elif [ $# -eq 0 ]; then  
   echo "The explorer can be installed by executing the script: ./install-explorer.sh"
