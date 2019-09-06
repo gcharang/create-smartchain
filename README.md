@@ -1,8 +1,8 @@
-# Simple scripts to create a Komodo assetchain using a single node for testing
+# Simple scripts to create a Komodo Smart Chain using a single node for testing
 
-This repository automates the steps described in the doc: https://docs.komodoplatform.com/assetchains/create-asset-chain-single-node.html
+This repository automates the steps described in the doc: https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-tutorials/creating-a-smart-chain-on-a-single-node.html
 
-**Assumes Ubuntu desktop environment, may need tweaks for other environments**
+**Assumes Ubuntu desktop environment, may need tweaks for others**
 
 Clone the repository and navigate into it.
 
@@ -11,16 +11,16 @@ Clone the repository and navigate into it.
 Create a file named `data` and add the following contents:
 
 ```bash
-name=<ASSETCHAIN-NAME>
+name=<SMARTCHAIN-NAME>
 srcdir=/home/<USER>/komodo/src
 launch="komodod -ac_name=$name -ac_supply=10"
 datadir=/home/<USER>/coinData
 ```
 
-- `name` is the assetchain's desired name
+- `name` is the Smart Chain's desired name
 - `srcdir` is the absolute location of the directory which contains `komodod` and `komodo-cli`
-- `launch` is the custom launch parameters of the assetchain, don't include `-pubkey` or `-addnode`
-- `datadir` is the absolute location of the directory to which the datadirectories of the second daemons are saved, no need to create it, the script will do it for you
+- `launch` is the custom launch parameters of the Smart Chain, don't include `-pubkey` or `-addnode`
+- `datadir` is the absolute location of the directory to which the data directories of the second daemons are saved, no need to create it, the script will do it for you
 
 ## Step 2
 
@@ -66,7 +66,7 @@ To stop both the daemons, use the `stop.sh` script
 
 ## Reindex
 
-For the first time the any of the indexes: `address,transaction,spent` have been added to the `conf` file, a reindex is needed. Use the `reindex.sh` script to do that. It also opens the `debug.log` corresponding to the daemon being reindexed in a new terminal.
+For the first time any of the indexes: `address,transaction,spent` are added to the `conf` file, a reindex is needed. Use the `reindex.sh` script to do that. It also opens the `debug.log` corresponding to the daemon being reindexed in a new terminal.
 
 Example:
 
@@ -82,5 +82,5 @@ Use `install-explorer.sh` to install the explorer for your assetchain. You can u
 
 ## Cleanup
 
-To remove the assetchain completely, execute the `cleanup.sh` script. It removes the datadirectories of both the daemons, the explorer script and explorer installation. This is typically done to start another assetchain with the same name.
-To target the removal of a Assetchain other than the one described in the `data` file, use `./cleanup.sh ASSETCHAIN-NAME`
+To remove the Smart Chain completely, execute the `cleanup.sh` script. It removes the data directories of both the daemons, the explorer script and explorer installation. This is typically done to start another Smart Chain with the same name.
+To target the removal of a Smart Chain other than the one described in the `data` file, use `./cleanup.sh SMARTCHAIN-NAME`
