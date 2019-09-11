@@ -52,7 +52,7 @@ Example:
 
 Use the `stop` method to gracefully stop the daemons.
 
-The script can be used to both create new assetchains or to launch an existing one.
+The script can be used to both create new Smart Chains or to launch an existing one.
 
 **Note:** Executing `create-assetchain.sh explorer` installs the explorer too
 
