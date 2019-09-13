@@ -38,16 +38,16 @@ privkey2=Uxxxxxxxxxxxxxxxxxx
 
 ## Step 3
 
-Execute the `create-assetchain.sh` script, it will launch two terminals each with a daemon running in them.
+Execute the `create-assetchain.sh` script, it will launch two terminals each with a daemon running.
 It also imports the `privkey` corresponding to the `pubkey` for the respective daemons.
 Use the scripts `c1` and `c2` to interact with the 1st and 2nd daemons respectively.
 
 Example:
 
 ```bash
-./c1 getinfo
-./c2 setgenerate true 1
-./c2 getbalance
+./c1 getinfo # Get info of the first daemon
+./c2 setgenerate true 1 # Start mining with the second daemon
+./c2 getbalance # Get balance of the second daemon
 ```
 
 Use the `stop` method to gracefully stop the daemons.
