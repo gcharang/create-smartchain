@@ -84,3 +84,9 @@ Use `install-explorer.sh` to install the explorer for your assetchain. You can u
 
 To remove the Smart Chain completely, execute the `cleanup.sh` script. It removes the data directories of both the daemons, the explorer script and explorer installation. This is typically done to start another Smart Chain with the same name.
 To target the removal of a Smart Chain other than the one described in the `data` file, use `./cleanup.sh SMARTCHAIN-NAME`
+
+## Collect backtrace
+
+Use the `./gdb-start.sh` script to start both the daemons using `gdb`
+
+
