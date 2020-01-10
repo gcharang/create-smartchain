@@ -17,4 +17,3 @@ do
   echo "waiting for the second daemon to stop"
   sleep 5
 done
-rm -rf /home/$USER/coinData/$name/
