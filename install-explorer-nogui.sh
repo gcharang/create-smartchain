@@ -83,7 +83,8 @@ fi
 echo "Launching first daemon to reindex the blocks"
 cd $CUR_DIR
 
-gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey1 -reindex'; $srcdir/$launch -pubkey=$pubkey1 -reindex\""
+#gnome-terminal -e "bash -c \"echo '$launch -pubkey=$pubkey1 -reindex'; $srcdir/$launch -pubkey=$pubkey1 -reindex\""
+$srcdir/$launch -pubkey=$pubkey1 -reindex &
 echo "started the first daemon in a new terminal with '-reindex'"
 echo "waiting for reindexing to finish"
 tail -f /home/$USER/.komodo/$name/debug.log | while read LOGLINE; do
